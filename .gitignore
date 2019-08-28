@@ -1,2 +1,4 @@
 
 caffe-src/
+data/caffe_imgclassify
+protobuf-3.3.0

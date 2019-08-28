@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -218,7 +218,7 @@ class LIBPROTOBUF_EXPORT IstreamInputStream : public ZeroCopyInputStream {
   // If a block_size is given, it specifies the number of bytes that
   // should be read and returned with each call to Next().  Otherwise,
   // a reasonable default is used.
-  explicit IstreamInputStream(istream* stream, int block_size = -1);
+  explicit IstreamInputStream(std::istream* stream, int block_size = -1);
   ~IstreamInputStream();
 
   // implements ZeroCopyInputStream ----------------------------------
@@ -230,7 +230,7 @@ class LIBPROTOBUF_EXPORT IstreamInputStream : public ZeroCopyInputStream {
  private:
   class LIBPROTOBUF_EXPORT CopyingIstreamInputStream : public CopyingInputStream {
    public:
-    CopyingIstreamInputStream(istream* input);
+    CopyingIstreamInputStream(std::istream* input);
     ~CopyingIstreamInputStream();
 
     // implements CopyingInputStream ---------------------------------
@@ -239,7 +239,7 @@ class LIBPROTOBUF_EXPORT IstreamInputStream : public ZeroCopyInputStream {
 
    private:
     // The stream.
-    istream* input_;
+    std::istream* input_;
 
     GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(CopyingIstreamInputStream);
   };
@@ -262,7 +262,7 @@ class LIBPROTOBUF_EXPORT OstreamOutputStream : public ZeroCopyOutputStream {
   // If a block_size is given, it specifies the size of the buffers
   // that should be returned by Next().  Otherwise, a reasonable default
   // is used.
-  explicit OstreamOutputStream(ostream* stream, int block_size = -1);
+  explicit OstreamOutputStream(std::ostream* stream, int block_size = -1);
   ~OstreamOutputStream();
 
   // implements ZeroCopyOutputStream ---------------------------------
@@ -273,7 +273,7 @@ class LIBPROTOBUF_EXPORT OstreamOutputStream : public ZeroCopyOutputStream {
  private:
   class LIBPROTOBUF_EXPORT CopyingOstreamOutputStream : public CopyingOutputStream {
    public:
-    CopyingOstreamOutputStream(ostream* output);
+    CopyingOstreamOutputStream(std::ostream* output);
     ~CopyingOstreamOutputStream();
 
     // implements CopyingOutputStream --------------------------------
@@ -281,7 +281,7 @@ class LIBPROTOBUF_EXPORT OstreamOutputStream : public ZeroCopyOutputStream {
 
    private:
     // The stream.
-    ostream* output_;
+    std::ostream* output_;
 
     GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(CopyingOstreamOutputStream);
   };
@@ -344,6 +344,7 @@ class LIBPROTOBUF_EXPORT LimitingInputStream : public ZeroCopyInputStream {
  private:
   ZeroCopyInputStream* input_;
   int64 limit_;  // Decreases as we go, becomes negative if we overshoot.
+  int64 prior_bytes_read_;  // Bytes read on underlying stream at construction
 
   GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(LimitingInputStream);
 };
