@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-MY=/usr/001caffe/caffe-master/examples/my_imgclassify
+MY=/usr/001caffe/caffe-master/examples/001my_imgclassify
 
 echo "Create train lmdb.."
 rm -rf $MY/img_train_lmdb

@@ -1,4 +1,4 @@
-net: "examples/my_imgclassify/train_val.prototxt"
+net: "examples/001my_imgclassify/train_val.prototxt"
 test_iter: 2
 test_interval: 50
 base_lr: 0.001
@@ -10,5 +10,5 @@ max_iter: 600
 momentum: 0.9
 weight_decay: 0.005
 snapshot: 10000
-snapshot_prefix: "examples/my_imgclassify/caffenet_train"
+snapshot_prefix: "examples/001my_imgclassify/caffenet_train"
 solver_mode: GPU

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 DATA=/usr/001caffe/caffe-master/data/caffe_imgclassify/re
 
-MY=/usr/001caffe/caffe-master/examples/my_imgclassify
+MY=/usr/001caffe/caffe-master/examples/001my_imgclassify
 
 
 

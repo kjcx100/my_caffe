@@ -10,7 +10,7 @@ layer {
   transform_param {
     mirror: true
     crop_size: 227
-    mean_file: "examples/my_imgclassify/mean.binaryproto"
+    mean_file: "examples/001my_imgclassify/mean.binaryproto"
   }
 # mean pixel / channel-wise mean instead of mean image
 #  transform_param {
@@ -21,7 +21,7 @@ layer {
 #    mirror: true
 #  }
   data_param {
-    source: "examples/my_imgclassify/img_train_lmdb"
+    source: "examples/001my_imgclassify/img_train_lmdb"
     batch_size: 128
     backend: LMDB
   }
@@ -37,7 +37,7 @@ layer {
   transform_param {
     mirror: false
     crop_size: 227
-    mean_file: "examples/my_imgclassify/mean.binaryproto"
+    mean_file: "examples/001my_imgclassify/mean.binaryproto"
   }
 # mean pixel / channel-wise mean instead of mean image
 #  transform_param {
@@ -48,7 +48,7 @@ layer {
 #    mirror: false
 #  }
   data_param {
-    source: "examples/my_imgclassify/img_test_lmdb"
+    source: "examples/001my_imgclassify/img_test_lmdb"
     batch_size: 50
     backend: LMDB
   }
